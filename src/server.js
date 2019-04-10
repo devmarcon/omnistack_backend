@@ -15,7 +15,6 @@ io.on('connection', socket => {
     })
 })
 
-
 mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-0kj88.mongodb.net/omnistack?retryWrites=true', {
     useNewUrlParser: true
 })
@@ -34,4 +33,4 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')))
 //utilizacao de arquivo externo para rotas
 app.use(require('./routes'));
 
-server.listen(3333);
+server.listen(process.env.PORT || 3333);
